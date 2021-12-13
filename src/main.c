@@ -1,4 +1,4 @@
-/*
+/**
 * @license Apache-2.0
 *
 * Copyright (c) 2021 The Stdlib Authors.
@@ -16,29 +16,27 @@
 * limitations under the License.
 */
 
-// TypeScript Version: 2.0
-
-/// <reference types="@stdlib/types"/>
-
-import { ComplexLike } from '@stdlib/types/object';
+#include "stdlib/complex/imag.h"
+#include "stdlib/complex/float64.h"
 
 /**
 * Returns the imaginary component of a double-precision complex floating-point number.
 *
-* @param z - complex number
-* @returns imaginary component
+* @param z     double-precision complex floating-point number
+* @return      imaginary component
 *
 * @example
-* var Complex128 = require( `@stdlib/complex/float64` );
+* #include "stdlib/complex/float64.h"
 *
-* var z = new Complex128( 5.0, 3.0 );
+* stdlib_complex128_t z = stdlib_complex128( 5.0, 2.0 );
 *
-* var im = imag( z );
-* // returns 3.0
+* // ...
+*
+* double im = stdlib_imag( z );
+* // returns 2.0
 */
-declare function imag( z: ComplexLike ): number;
-
-
-// EXPORTS //
-
-export = imag;
+double stdlib_imag( const stdlib_complex128_t z ) {
+	stdlib_complex128_parts_t v;
+	v.value = z; // cppcheck-suppress unreadVariable
+	return v.parts[ 1 ];
+}

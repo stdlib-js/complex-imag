@@ -1,7 +1,7 @@
 /**
 * @license Apache-2.0
 *
-* Copyright (c) 2018 The Stdlib Authors.
+* Copyright (c) 2021 The Stdlib Authors.
 *
 * Licensed under the Apache License, Version 2.0 (the "License");
 * you may not use this file except in compliance with the License.
@@ -16,28 +16,25 @@
 * limitations under the License.
 */
 
-'use strict';
+#ifndef STDLIB_COMPLEX_IMAG_H
+#define STDLIB_COMPLEX_IMAG_H
+
+#include "stdlib/complex/float64.h"
+
+/*
+* If C++, prevent name mangling so that the compiler emits a binary file having undecorated names, thus mirroring the behavior of a C compiler.
+*/
+#ifdef __cplusplus
+extern "C" {
+#endif
 
 /**
-* Return the imaginary component of a double-precision complex floating-point number.
-*
-* @module @stdlib/complex-imag
-*
-* @example
-* var Complex128 = require( '@stdlib/complex-float64' );
-* var imag = require( '@stdlib/complex-imag' );
-*
-* var z = new Complex128( 5.0, 3.0 );
-*
-* var im = imag( z );
-* // returns 3.0
+* Returns the imaginary component of a double-precision complex floating-point number.
 */
+double stdlib_imag( const stdlib_complex128_t z );
 
-// MODULES //
+#ifdef __cplusplus
+}
+#endif
 
-var main = require( './main.js' );
-
-
-// EXPORTS //
-
-module.exports = main;
+#endif // !STDLIB_COMPLEX_IMAG_H
