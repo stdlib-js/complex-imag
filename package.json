@@ -1,6 +1,6 @@
 {
   "name": "@stdlib/complex-imag",
-  "version": "0.0.7",
+  "version": "0.0.0",
   "description": "Return the imaginary component of a double-precision complex floating-point number.",
   "license": "Apache-2.0",
   "author": {
