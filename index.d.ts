@@ -1,7 +1,7 @@
-/**
+/*
 * @license Apache-2.0
 *
-* Copyright (c) 2018 The Stdlib Authors.
+* Copyright (c) 2021 The Stdlib Authors.
 *
 * Licensed under the Apache License, Version 2.0 (the "License");
 * you may not use this file except in compliance with the License.
@@ -16,27 +16,29 @@
 * limitations under the License.
 */
 
-'use strict';
+// TypeScript Version: 2.0
+
+/// <reference types="https://cdn.jsdelivr.net/gh/stdlib-js/types@esm/index.d.ts"/>
+
+import { Complex128 } from '@stdlib/types/object';
 
 /**
 * Returns the imaginary component of a double-precision complex floating-point number.
 *
-* @param {Complex} z - complex number
-* @returns {number} imaginary component
+* @param z - complex number
+* @returns imaginary component
 *
 * @example
-* var Complex128 = require( '@stdlib/complex-float64' );
+* var Complex128 = require( `@stdlib/complex/float64` );
 *
 * var z = new Complex128( 5.0, 3.0 );
 *
 * var im = imag( z );
 * // returns 3.0
 */
-function imag( z ) {
-	return z.im;
-}
+declare function imag( z: Complex128 ): number;
 
 
 // EXPORTS //
 
-module.exports = imag;
+export = imag;
