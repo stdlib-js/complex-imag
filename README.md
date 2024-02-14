@@ -52,7 +52,7 @@ limitations under the License.
 ## Usage
 
 ```javascript
-import imag from 'https://cdn.jsdelivr.net/gh/stdlib-js/complex-imag@esm/index.mjs';
+import imag from 'https://cdn.jsdelivr.net/gh/stdlib-js/complex-imag@v0.2.0-esm/index.mjs';
 ```
 
 #### imag( z )
@@ -96,7 +96,7 @@ var im = imag( z );
 import Complex128 from 'https://cdn.jsdelivr.net/gh/stdlib-js/complex-float64@esm/index.mjs';
 import randu from 'https://cdn.jsdelivr.net/gh/stdlib-js/random-base-randu@esm/index.mjs';
 import round from 'https://cdn.jsdelivr.net/gh/stdlib-js/math-base-special-round@esm/index.mjs';
-import imag from 'https://cdn.jsdelivr.net/gh/stdlib-js/complex-imag@esm/index.mjs';
+import imag from 'https://cdn.jsdelivr.net/gh/stdlib-js/complex-imag@v0.2.0-esm/index.mjs';
 
 var re;
 var im;
