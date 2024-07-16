@@ -45,38 +45,32 @@ limitations under the License.
 
 <!-- Package usage documentation. -->
 
+<section class="installation">
 
+## Installation
+
+```bash
+npm install @stdlib/complex-imag
+```
+
+Alternatively,
+
+-   To load the package in a website via a `script` tag without installation and bundlers, use the [ES Module][es-module] available on the [`esm`][esm-url] branch (see [README][esm-readme]).
+-   If you are using Deno, visit the [`deno`][deno-url] branch (see [README][deno-readme] for usage intructions).
+-   For use in Observable, or in browser/node environments, use the [Universal Module Definition (UMD)][umd] build available on the [`umd`][umd-url] branch (see [README][umd-readme]).
+
+The [branches.md][branches-url] file summarizes the available branches and displays a diagram illustrating their relationships.
+
+To view installation and usage instructions specific to each branch build, be sure to explicitly navigate to the respective README files on each branch, as linked to above.
+
+</section>
 
 <section class="usage">
 
 ## Usage
 
-To use in Observable,
-
 ```javascript
-imag = require( 'https://cdn.jsdelivr.net/gh/stdlib-js/complex-imag@umd/browser.js' )
-```
-
-To vendor stdlib functionality and avoid installing dependency trees for Node.js, you can use the UMD server build:
-
-```javascript
-var imag = require( 'path/to/vendor/umd/complex-imag/index.js' )
-```
-
-To include the bundle in a webpage,
-
-```html
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/complex-imag@umd/browser.js"></script>
-```
-
-If no recognized module system is present, access bundle contents via the global scope:
-
-```html
-<script type="text/javascript">
-(function () {
-    window.imag;
-})();
-</script>
+var imag = require( '@stdlib/complex-imag' );
 ```
 
 #### imag( z )
@@ -84,7 +78,7 @@ If no recognized module system is present, access bundle contents via the global
 Returns the **imaginary** component of a double-precision complex floating-point number.
 
 ```javascript
-var Complex128 = require( '@stdlib/complex-float64' );
+var Complex128 = require( '@stdlib/complex-float64-ctor' );
 
 var z = new Complex128( 5.0, 3.0 );
 var im = imag( z );
@@ -111,16 +105,11 @@ var im = imag( z );
 
 <!-- eslint no-undef: "error" -->
 
-```html
-<!DOCTYPE html>
-<html lang="en">
-<body>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/complex-float64@umd/browser.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/random-base-randu@umd/browser.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/math-base-special-round@umd/browser.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/complex-imag@umd/browser.js"></script>
-<script type="text/javascript">
-(function () {
+```javascript
+var Complex128 = require( '@stdlib/complex-float64-ctor' );
+var randu = require( '@stdlib/random-base-randu' );
+var round = require( '@stdlib/math-base-special-round' );
+var imag = require( '@stdlib/complex-imag' );
 
 var re;
 var im;
@@ -133,11 +122,6 @@ for ( i = 0; i < 100; i++ ) {
     z = new Complex128( re, im );
     console.log( 'imag(%s) = %d', z.toString(), imag( z ) );
 }
-
-})();
-</script>
-</body>
-</html>
 ```
 
 </section>
@@ -146,7 +130,98 @@ for ( i = 0; i < 100; i++ ) {
 
 <!-- C interface documentation. -->
 
+* * *
 
+<section class="c">
+
+## C APIs
+
+<!-- Section to include introductory text. Make sure to keep an empty line after the intro `section` element and another before the `/section` close. -->
+
+<section class="intro">
+
+</section>
+
+<!-- /.intro -->
+
+<!-- C usage documentation. -->
+
+<section class="usage">
+
+### Usage
+
+```c
+#include "stdlib/complex/imag.h"
+```
+
+#### stdlib_imag( z )
+
+Returns the imaginary component of a double-precision complex floating-point number.
+
+```c
+#include "stdlib/complex/float64/ctor.h"
+
+stdlib_complex128_t z = stdlib_complex128( 5.0, 2.0 );
+
+// ...
+
+double im = stdlib_imag( z );
+// returns 2.0
+```
+
+The function accepts the following arguments:
+
+-   **z**: `[in] stdlib_complex128_t` double-precision complex floating-point number.
+
+```c
+double stdlib_imag( const stdlib_complex128_t z );
+```
+
+</section>
+
+<!-- /.usage -->
+
+<!-- C API usage notes. Make sure to keep an empty line after the `section` element and another before the `/section` close. -->
+
+<section class="notes">
+
+</section>
+
+<!-- /.notes -->
+
+<!-- C API usage examples. -->
+
+<section class="examples">
+
+### Examples
+
+```c
+#include "stdlib/complex/imag.h"
+#include "stdlib/complex/float64/ctor.h"
+#include <stdio.h>
+
+int main( void ) {
+    const stdlib_complex128_t x[] = {
+        stdlib_complex128( 5.0, 2.0 ),
+        stdlib_complex128( -2.0, 1.0 ),
+        stdlib_complex128( 0.0, -0.0 ),
+        stdlib_complex128( 0.0/0.0, 0.0/0.0 )
+    };
+
+    int i;
+    for ( i = 0; i < 4; i++ ) {
+        printf( "imag(v) = %lf\n", stdlib_imag( x[ i ] ) );
+    }
+}
+```
+
+</section>
+
+<!-- /.examples -->
+
+</section>
+
+<!-- /.c -->
 
 <!-- Section to include cited references. If references are included, add a horizontal rule *before* the section. Make sure to keep an empty line after the `section` element and another before the `/section` close. -->
 
@@ -165,7 +240,7 @@ for ( i = 0; i < 100; i++ ) {
 ## See Also
 
 -   <span class="package-name">[`@stdlib/complex-real`][@stdlib/complex/real]</span><span class="delimiter">: </span><span class="description">return the real component of a double-precision complex floating-point number.</span>
--   <span class="package-name">[`@stdlib/complex-reim`][@stdlib/complex/reim]</span><span class="delimiter">: </span><span class="description">return the real and imaginary components of a double-precision complex floating-point number.</span>
+-   <span class="package-name">[`@stdlib/complex-float64/reim`][@stdlib/complex/float64/reim]</span><span class="delimiter">: </span><span class="description">return the real and imaginary components of a double-precision complex floating-point number.</span>
 
 </section>
 
@@ -245,9 +320,9 @@ Copyright &copy; 2016-2024. The Stdlib [Authors][stdlib-authors].
 
 <!-- <related-links> -->
 
-[@stdlib/complex/real]: https://github.com/stdlib-js/complex-real/tree/umd
+[@stdlib/complex/real]: https://github.com/stdlib-js/complex-real
 
-[@stdlib/complex/reim]: https://github.com/stdlib-js/complex-reim/tree/umd
+[@stdlib/complex/float64/reim]: https://github.com/stdlib-js/complex-float64-reim
 
 <!-- </related-links> -->
 
