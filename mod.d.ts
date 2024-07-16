@@ -1,4 +1,4 @@
-/**
+/*
 * @license Apache-2.0
 *
 * Copyright (c) 2021 The Stdlib Authors.
@@ -16,27 +16,29 @@
 * limitations under the License.
 */
 
-#include "stdlib/complex/imag.h"
-#include "stdlib/complex/float64/ctor.h"
+// TypeScript Version: 4.1
+
+/// <reference types="https://cdn.jsdelivr.net/gh/stdlib-js/types@main/index.d.ts"/>
+
+import { Complex128 } from '@stdlib/types/complex';
 
 /**
 * Returns the imaginary component of a double-precision complex floating-point number.
 *
-* @param z     double-precision complex floating-point number
-* @return      imaginary component
+* @param z - complex number
+* @returns imaginary component
 *
 * @example
-* #include "stdlib/complex/float64/ctor.h"
+* var Complex128 = require( '@stdlib/complex-float64-ctor' );
 *
-* stdlib_complex128_t z = stdlib_complex128( 5.0, 2.0 );
+* var z = new Complex128( 5.0, 3.0 );
 *
-* // ...
-*
-* double im = stdlib_imag( z );
-* // returns 2.0
+* var im = imag( z );
+* // returns 3.0
 */
-double stdlib_imag( const stdlib_complex128_t z ) {
-	stdlib_complex128_parts_t v;
-	v.value = z; // cppcheck-suppress unreadVariable
-	return v.parts[ 1 ];
-}
+declare function imag( z: Complex128 ): number;
+
+
+// EXPORTS //
+
+export = imag;
